@@ -1,13 +1,14 @@
-import { QueryClient } from '@tanstack/react-query'
+import { QueryClient, QueryKey } from '@tanstack/react-query'
 
 export interface PromisePromiseTrackerParams {
-  queryKeys: string[][]
+  queryKeys: string[][] | QueryKey[]
   context?: QueryClient
 }
 
 export interface ReactQuerySuspenseParams {
-  queryKeys?: string[][]
-  context?: QueryClient
+  queryKeys: string[][] | QueryKey[]
   Fallback: React.ReactNode
   children: React.ReactNode
+  context?: QueryClient
+  deferredStart?: boolean
 }
