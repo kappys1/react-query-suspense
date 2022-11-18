@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["ES2020"],
+    "lib": ["ES2020", "DOM"],
     "target": "ESNext",
     "module": "ES2020",
     "outDir": "./dist",
@@ -20,7 +20,7 @@
     "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "jsx": "react",
     "types": ["jest"]
   }
