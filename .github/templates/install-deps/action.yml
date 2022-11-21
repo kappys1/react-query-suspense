@@ -21,8 +21,8 @@ runs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-        check-latest: true
-        cache: 'pnpm'
+          check-latest: true
+          cache: 'pnpm'
 
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
     - run: pnpm install --prefer-offline
