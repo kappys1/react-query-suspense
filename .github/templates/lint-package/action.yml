@@ -22,4 +22,5 @@ runs:
 
     - name: 🚨 Lint files
       run: pnpm run lint
+      shell: bash
 

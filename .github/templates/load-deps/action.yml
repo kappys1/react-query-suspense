@@ -21,3 +21,4 @@ runs:
     - name: ⚙️ Install dependencies
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
       run: pnpm install --prefer-offline
+      shell: bash

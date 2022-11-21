@@ -10,9 +10,11 @@ runs:
 
     - name: 🧪 Run tests
       run: pnpm run test:ci
+      shell: bash
 
     - name: ⚒️ Build package
       run: pnpm run build
+      shell: bash
 
 
 

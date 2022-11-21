@@ -16,3 +16,4 @@ runs:
 
     - name: 🧪 Run tests
       run: pnpm run test:ci
+      shell: bash
