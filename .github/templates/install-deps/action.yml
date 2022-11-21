@@ -18,9 +18,9 @@ runs:
           ${{ runner.os }}-node-
 
     - name: 🛠️ Setup Node and install project dependencies
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16.14.2'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
         check-latest: true
         cache: 'pnpm'
 
