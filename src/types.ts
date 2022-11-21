@@ -5,10 +5,10 @@ export interface PromisePromiseTrackerParams {
   context?: QueryClient
 }
 
-export interface ReactQuerySuspenseParams {
-  queryKeys: string[][] | QueryKey[]
+export interface UseReactQueryParams extends PromisePromiseTrackerParams {
+  deferredFetch?: boolean
+}
+export interface ReactQuerySuspenseParams extends UseReactQueryParams {
   Fallback: React.ReactNode
   children: React.ReactNode
-  context?: QueryClient
-  deferredStart?: boolean
 }

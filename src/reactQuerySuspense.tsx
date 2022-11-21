@@ -1,21 +1,14 @@
 import React from 'react'
 import { ReactQuerySuspenseParams } from './types'
-import { useReactQueryPromiseTracker } from './useReactQueryPromiseTracker'
+import { useReactSuspense } from './useReactSuspense'
 
 export const ReactQuerySuspense: React.FC<ReactQuerySuspenseParams> = ({
-  queryKeys = [[]],
+  queryKeys,
   Fallback,
-  deferredStart = false,
+  deferredFetch,
   children,
   context
 }) => {
-  const promiseInProgress = useReactQueryPromiseTracker({ queryKeys, context })
-  const refAnyPromiseStarted = React.useRef<boolean>(promiseInProgress)
-  if (promiseInProgress) refAnyPromiseStarted.current = true
-
-  if (deferredStart) {
-    return <>{!promiseInProgress && refAnyPromiseStarted.current ? children : Fallback}</>
-  }
-
-  return <>{promiseInProgress ? Fallback : children}</>
+  const suspense = useReactSuspense({ queryKeys, context, deferredFetch })
+  return <>{suspense ? Fallback : children}</>
 }

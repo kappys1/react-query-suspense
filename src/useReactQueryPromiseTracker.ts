@@ -10,8 +10,7 @@ export const useReactQueryPromiseTracker = ({ queryKeys, context }: PromisePromi
 
   const promiseInProgress = observer
     .getCurrentResult()
-    .map((v) => v.isLoading || v.isRefetching)
+    .map((v) => v.fetchStatus === 'fetching' && v.status === 'loading')
     .some((v) => v)
-
   return promiseInProgress
 }
