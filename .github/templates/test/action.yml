@@ -7,10 +7,10 @@ runs:
   name: 🧪 Test package
   steps:
     - name: Install pnpm
-      uses: '.github/templates/install-pnpm'
+      uses: './.github/templates/install-pnpm'
 
     - name: Install dependencies
-      uses: '.github/templates/load-deps'
+      uses: './.github/templates/load-deps'
 
     - name: 🧪 Run tests
       run: pnpm run test:ci

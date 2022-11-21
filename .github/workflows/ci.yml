@@ -9,14 +9,14 @@ jobs:
     steps:
       - uses: amannn/action-semantic-pull-request@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets./.github_TOKEN }}
 
   install-deps:
     runs-on: ubuntu-latest
     name: 📦 Install dependencies
     steps:
       - name: Install dependencies
-        uses: .github/templates/install-deps
+        uses: ./.github/templates/install-deps
 
   lint-package:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
     needs: install-deps
     steps:
       - name: 🚨 Check for errors
-        uses: .github/templates/lint-package
+        uses: ./.github/templates/lint-package
 
   tests:
     name: 🧪 Test package
@@ -32,7 +32,7 @@ jobs:
     needs: install-deps
     steps:
       - name: test
-        uses: .github/templates/test
+        uses: ./.github/templates/test
 
   build:
     name: 🏗️ Build package
@@ -40,4 +40,4 @@ jobs:
     needs: install-deps
     steps:
       - name: 📦 Build
-        uses: .github/templates/build
+        uses: ./.github/templates/build

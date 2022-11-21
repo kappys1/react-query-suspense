@@ -7,7 +7,7 @@ runs:
   name:  ⚒ Build
   steps:
     - name: lint and install deps
-      uses: '.github/templates/lint-package'
+      uses: './.github/templates/lint-package'
 
     - name: 🧪 Run tests
       run: pnpm run test:ci

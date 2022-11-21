@@ -7,7 +7,7 @@ runs:
   name: 📦 Install dependencies
   steps:
     - name: Install pnpm
-      uses: '.github/.templates/install-pnpm'
+      uses: './.github/.templates/install-pnpm'
 
     - name: ♻️ Cache node_modules
       uses: actions/cache@v3
