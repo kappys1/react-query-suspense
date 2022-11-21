@@ -5,8 +5,10 @@ runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
   steps:
-    - name: Install pnpm
-      uses: ./.github/templates/install-pnpm
+    - name: 🔧 Install PNPM
+      uses: pnpm/action-setup@v2.2.4
+      with:
+        version: 7
 
     - name: Install dependencies
       uses: ./.github/templates/load-deps
