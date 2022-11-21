@@ -20,7 +20,7 @@ jobs:
     name: 🔨 Install dependencies
     steps:
       - name: Install dependencies
-        uses: '.github/templates/install-deps'
+        uses: .github/templates/install-deps
 
   tests:
     name: 🧪 Test package
@@ -28,7 +28,7 @@ jobs:
     needs: install-deps
     steps:
       - name: test
-        uses: '.github/templates/test'
+        uses: .github/templates/test
 
   build:
     name: 🏗️ Build package for release
@@ -36,7 +36,7 @@ jobs:
     needs: install-deps
     steps:
       - name: 📦 Build
-        uses: '.github/templates/build-prod'
+        uses: .github/templates/build-prod
 
   release:
     name: 🚀 Release to NPM
@@ -47,10 +47,10 @@ jobs:
       published: ${{ steps.changesets.outputs.published }}
     steps:
       - name: Install pnpm
-        uses: '.github/templates/install-pnpm'
+        uses: .github/templates/install-pnpm
 
       - name: Install dependencies
-        uses: '.github/templates/load-deps'
+        uses: .github/templates/load-deps
 
       - name: ♻️ Load build files
         uses: actions/cache@v3

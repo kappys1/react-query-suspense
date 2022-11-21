@@ -11,7 +11,7 @@ jobs:
     name: 📦 Install dependencies
     steps:
       - name: Install dependencies
-        uses: '.github/templates/install-deps'
+        uses: .github/templates/install-deps
 
   tests:
     name: 🧪 Test package
@@ -19,7 +19,7 @@ jobs:
     needs: install-deps
     steps:
       - name: test
-        uses: '.github/templates/test'
+        uses: .github/templates/test
 
   build:
     name: 🏗️ Build package
@@ -27,4 +27,4 @@ jobs:
     needs: install-deps
     steps:
       - name: 📦 Build
-        uses: '.github/templates/build'
+        uses: .github/templates/build

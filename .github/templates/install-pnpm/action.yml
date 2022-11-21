@@ -3,7 +3,6 @@ name: install-pnpm
 
 runs:
   using: "composite"
-  needs: install-deps
   # Defining the action steps(Just one step to be simple)
   name: ⚙️ Install PNPM
   steps:
