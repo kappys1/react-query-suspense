@@ -46,7 +46,7 @@ describe('useReactSuspense', () => {
     const { result: resultCall } = renderHook(() => testCall(queryKey), {
       wrapper
     })
-    const { result: resultCall2 } = renderHook(() => testCall(queryKey2, 1000), {
+    const { result: resultCall2 } = renderHook(() => testCall(queryKey2, 100), {
       wrapper
     })
     const { result, rerender } = renderHook(() => useReactSuspense({ queryKeys: [queryKey, queryKey2] }), {
