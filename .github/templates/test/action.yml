@@ -15,5 +15,5 @@ runs:
       uses: ./.github/templates/load-deps
 
     - name: 🧪 Run tests
-      run: pnpm run test:ci
+      run: pnpm run test:coverage
       shell: bash

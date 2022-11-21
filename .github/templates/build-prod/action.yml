@@ -12,7 +12,7 @@ runs:
       uses: ./.github/templates/lint-package
 
     - name: 🧪 Run tests
-      run: pnpm run test:ci
+      run: pnpm run test:coverage
       shell: bash
 
     - name: ⚒️ Build package
