@@ -1,0 +1,16 @@
+name: test
+
+runs:
+  using: "composite"
+  needs: install-deps
+  # Defining the action steps(Just one step to be simple)
+  name: 🧪 Test package
+  steps:
+    - name: Install pnpm
+      uses: '.github/templates/install-pnpm'
+
+    - name: Install dependencies
+      uses: '.github/templates/load-deps'
+
+    - name: 🧪 Run tests
+      run: pnpm run test:ci

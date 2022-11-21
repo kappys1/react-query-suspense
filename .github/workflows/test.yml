@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install-deps:
+    runs-on: ubuntu-latest
+    name: 📦 Install dependencies
+    steps:
+      - name: Install dependencies
+        uses: '.github/templates/install-deps'
+
+  tests:
+    name: 🧪 Test package
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - name: test
+        uses: '.github/templates/test'
+
+  build:
+    name: 🏗️ Build package
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - name: 📦 Build
+        uses: '.github/templates/build'

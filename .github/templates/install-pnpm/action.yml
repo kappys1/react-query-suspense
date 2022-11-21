@@ -1,0 +1,16 @@
+name: install-pnpm
+
+
+runs:
+  using: "composite"
+  needs: install-deps
+  # Defining the action steps(Just one step to be simple)
+  name: ⚙️ Install PNPM
+  steps:
+    - name: 🔑 Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: 🔧 Install PNPM
+      uses: pnpm/action-setup@v2.2.4
+      with:
+        version: 7

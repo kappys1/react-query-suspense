@@ -1,0 +1,20 @@
+name: build-prod
+
+
+runs:
+  using: "composite"
+  needs: install-deps
+  # Defining the action steps(Just one step to be simple)
+  name:  ⚒ Build
+  steps:
+    - name: lint and install deps
+      uses: '.github/templates/lint-package'
+
+    - name: 🧪 Run tests
+      run: pnpm run test:ci
+
+    - name: ⚒️ Build package
+      run: pnpm run build
+
+
+
