@@ -4,7 +4,6 @@ name: install-pnpm
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name: ⚙️ Install PNPM
   steps:
     - name: 🔑 Checkout Repository
       uses: actions/checkout@v3

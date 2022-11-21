@@ -4,7 +4,6 @@ name: install-pnpm
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name: Lint package
   steps:
     - name: Install pnpm
       uses: ./.github/templates/install-pnpm

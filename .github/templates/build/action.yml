@@ -4,7 +4,6 @@ name: build
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name: 🔨 Build Package
   steps:
     - name: Install pnpm
       uses: ./.github/templates/install-pnpm

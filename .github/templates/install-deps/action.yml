@@ -4,9 +4,8 @@ name: install-deps
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name: 📦 Install dependencies
   steps:
-    - name: Install pnpm
+    - name: 📦 Install pnpm
       uses: ./.github/.templates/install-pnpm
 
     - name: ♻️ Cache node_modules
