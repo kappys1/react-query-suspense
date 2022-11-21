@@ -57,8 +57,10 @@ jobs:
       - name: 🔑 Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install pnpm
-        uses: ./.github/templates/install-pnpm
+      - name: 🔧 Install PNPM
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
 
       - name: Install dependencies
         uses: ./.github/templates/load-deps
