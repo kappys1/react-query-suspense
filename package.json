@@ -25,7 +25,7 @@
     "test:watch": "jest --passWithNoTests --watch",
     "test:coverage": "pnpm run test --coverage",
     "prepare": "is-ci || husky install",
-    "prerelease": "run-p build test:ci",
+    "prerelease": "run-p build test:coverage",
     "release": "changeset publish"
   },
   "repository": {
@@ -98,10 +98,5 @@
     "react-query-suspense",
     "suspense",
     "react-suspense"
-  ],
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  ]
 }

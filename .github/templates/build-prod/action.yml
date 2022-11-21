@@ -4,16 +4,20 @@ name: build-prod
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name:  ⚒ Build
   steps:
+    - name: 🔑 Checkout Repository
+      uses: actions/checkout@v3
+
     - name: lint and install deps
-      uses: './.github/templates/lint-package'
+      uses: ./.github/templates/lint-package
 
     - name: 🧪 Run tests
-      run: pnpm run test:ci
+      run: pnpm run test:coverage
+      shell: bash
 
     - name: ⚒️ Build package
       run: pnpm run build
+      shell: bash
 
 
 

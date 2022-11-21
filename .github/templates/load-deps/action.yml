@@ -4,7 +4,6 @@ name: load-deps
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name: ⚙️ Install dependencies
   steps:
     - name: ♻️ Restore node_modules
       uses: actions/cache@v3
@@ -22,3 +21,4 @@ runs:
     - name: ⚙️ Install dependencies
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
       run: pnpm install --prefer-offline
+      shell: bash

@@ -4,13 +4,17 @@ name: install-pnpm
 runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
-  name: Lint package
   steps:
-    - name: Install pnpm
-      uses: './.github/templates/install-pnpm'
+    - name: 🔑 Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: 🔧 Install PNPM
+      uses: pnpm/action-setup@v2.2.4
+      with:
+        version: 7
 
     - name: Install dependencies
-      uses: './.github/templates/load-deps'
+      uses: ./.github/templates/load-deps
 
     - name: ♻️ Restore ESLint Cache
       uses: actions/cache@v3
@@ -21,4 +25,5 @@ runs:
 
     - name: 🚨 Lint files
       run: pnpm run lint
+      shell: bash
 
