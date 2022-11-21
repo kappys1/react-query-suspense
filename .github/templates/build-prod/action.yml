@@ -5,6 +5,9 @@ runs:
   using: "composite"
   # Defining the action steps(Just one step to be simple)
   steps:
+    - name: 🔑 Checkout Repository
+      uses: actions/checkout@v3
+
     - name: lint and install deps
       uses: ./.github/templates/lint-package
 
