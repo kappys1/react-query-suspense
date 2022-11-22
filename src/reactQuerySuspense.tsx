@@ -1,6 +1,6 @@
 import React from 'react'
 import { ReactQuerySuspenseParams } from './types'
-import { useReactSuspense } from './useReactSuspense'
+import { useReactQuerySuspense } from './useReactQuerySuspense'
 
 export const ReactQuerySuspense: React.FC<ReactQuerySuspenseParams> = ({
   queryKeys,
@@ -9,6 +9,6 @@ export const ReactQuerySuspense: React.FC<ReactQuerySuspenseParams> = ({
   children,
   context
 }) => {
-  const suspense = useReactSuspense({ queryKeys, context, deferredFetch })
+  const suspense = useReactQuerySuspense({ queryKeys, context, deferredFetch })
   return <>{suspense ? Fallback : children}</>
 }

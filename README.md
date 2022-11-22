@@ -15,14 +15,16 @@
   <a href="https://github.com/kappys1/react-query-suspense" target="\_parent"><img src="https://img.shields.io/github/stars/kappys1/react-query-suspense.svg?style=social&amp;label=Star" alt="GitHub Stars"></a>
 </p>
 
-<p align="center">
-  <strong>another way to suspense the <a href="https://tanstack.com/query" target="\_parent">@tanstack/query</a> calls by queryKeys with multiples possibilities</strong>
-</p>
+---
 
 <p align="center">
-  we bring you the possibility to use a hook's or Component<br/> to suspense your components by <strong>QueryKeys</strong>
+  <strong>another way to suspense the <a href="https://tanstack.com/query" target="\_parent">@tanstack/query</a> calls by queryKeys with multiples possibilities.
+  <br/>
+  Suspense your component wherever you want just passing a query key call.</strong>
 </p>
 
+
+---
 
 ## 📦 Install
 React Query Suspense is available as a package on NPM, install with your favorite package manager:
@@ -33,50 +35,134 @@ npm install @kappys/react-query-suspense
 
 ## ⚡ Quick start
 
+start wrapping the content that you want suspense until the call is ready to render.
+
+
+#### Simple way wrapping a component with `ReactQuerySuspense` waiting the example query key call.
+
+Is not necessary pass isLoading or isSuccess, just pass the queryKey and forget all things.
+
 ```ts
-import { QueryKey, useQuery } from '@tanstack/react-query'
-import React from 'react'
-import { ReactQuerySuspense } from '@kappys/react-query-suspense'
+import React from "react";
+import { ReactQuerySuspense, QueryKey } from '@kappys/react-query-suspense'
 
-const key: QueryKey = ['test']
-const key2: QueryKey = ['test2']
+export const SampleComponent: React.FC<React.PropsWithChildren<{
+  keys: QueryKey[];
+}>> = ({ children, keys }) => {
 
-export const TestComponent: React.FC<React.PropsWithChildren<{ keys: QueryKey[] }>> = ({ children, keys }) => {
+  const key: QueryKey = ["example"];
+
   return (
     <ReactQuerySuspense Fallback={<>loading</>} queryKeys={keys}>
-      {children}
+      <div>{children}</div>
     </ReactQuerySuspense>
-  )
-}
-
-export const useCall = (): { data: any, data2: any } => {
-  const baseUrl = 'https://jsonplaceholder.typicode.com'
-  const query = '/todos/1'
-  const query2 = '/todos/2'
-  const { data } = useQuery(key, async () => await fetch(`${baseUrl}${query}`).then(async (res) => await res.json()))
-  const { data: data2 } = useQuery(
-    key2,
-    async () => await fetch(`${baseUrl}${query2}`).then(async (res) => await res.json())
-  )
-
-  return { data, data2 }
-}
-
-export const Container: React.FC = () => {
-  const { data, data2 } = useCall()
-  return (
-    <>
-      <TestComponent keys={[key]}> {JSON.stringify(data)} </TestComponent>
-      <TestComponent keys={[key2]}> {JSON.stringify(data2)} </TestComponent>
-      <TestComponent keys={[key, key2]}>
-        {JSON.stringify(data)}
-        <br />
-        {JSON.stringify(data2)}
-      </TestComponent>
-    </>
-  )
-}
-
-
-
+  );
+};
 ```
+
+#### Example with `ReactQuerySuspense` in real world waiting multiples calls
+
+
+[![Edit react-query-suspense](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-query-suspense-qrjvtm?fontsize=14&hidenavigation=1&theme=dark&view=editor)
+
+
+## 📝 Features
+
+`Important: On Error fetch, this library will keep loading, in a future we will implement FallbackError`
+
+#### Suspense
+
+```ts
+<ReactQuerySuspense Fallback={<>loading</>} queryKeys={['query', 'key']}>
+  <div>Test</div>
+</ReactQuerySuspense>
+```
+
+#### Suspense with deferred fetch option
+- it will force to put the loading in the first rendering.
+```ts
+<ReactQuerySuspense Fallback={<>loading</>} queryKeys={['query', 'key']} deferredFetch>
+  <div>Test</div>
+</ReactQuerySuspense>
+```
+
+#### Suspense waiting multiples calls
+```ts
+const keys1 = ['query', 'key1'];
+const keys2 = ['query', 'key2'];
+
+<ReactQuerySuspense Fallback={<>loading</>} queryKeys={[[keys1], [keys2]]}>
+  <div>Test</div>
+</ReactQuerySuspense>
+```
+
+
+#### Hook to know if the call is fetching or not.
+
+```ts
+
+const suspense: boolean = useReactQuerySuspense({ queryKeys })
+```
+
+
+## 📘 API Reference
+
+#### ReactQuerySuspense
+
+Attributes
+
+- `Fallback: React.ReactNode`
+  - Required
+- `queryKeys: QueryKey[]`
+  - Required
+  - QueryKey that you are using to identify your calls in `useQuery` and `useMutation`
+- `context?: QueryClient`
+  - Optional
+  - Possibility to pass another context to listen, the context is provided when you call `new QueryClient`
+- `deferredFetch?: boolean`
+  - Optional
+  - it provides you the possibility to render the Fallback first.
+
+#### useReactQuerySuspense
+
+Options
+
+- `queryKeys: QueryKey[]`
+  - Required
+  - QueryKey that you are using to identify your calls in `useQuery` and `useMutation`
+- `context?: QueryClient`
+  - Optional
+  - Possibility to pass another context to listen, the context is provided when you call `new QueryClient`
+- `deferredFetch?: boolean`
+  - Optional
+  - It provides you the possibility to render the Fallback first.
+
+Return
+
+- `suspense: boolean`
+  - Return a boolean with the status of suspense.
+
+
+## Issues
+
+_Looking to contribute? Look for the [Good First Issue][good-first-issue]
+label._
+
+### 🐛 Bugs
+
+Please file an issue for bugs, missing documentation, or unexpected behavior.
+
+[**See Bugs**][bugs]
+
+### 💡 Feature Requests
+
+Please file an issue to suggest new features. Vote on feature requests by adding
+a 👍. This helps maintainers prioritize what to work on.
+
+[**See Feature Requests**][requests]
+
+## LICENSE
+
+MIT
+
+
