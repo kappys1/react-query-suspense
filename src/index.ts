@@ -1,4 +1,4 @@
 export * from './useReactQueryPromiseTracker'
 export * from './reactQuerySuspense'
-export * from './useReactSuspense'
+export * from './useReactQuerySuspense'
 export * from './types'

@@ -1,6 +1,6 @@
 import { QueryKey } from '@tanstack/react-query'
 import { cleanup, renderHook, waitFor } from '@testing-library/react'
-import { useReactSuspense } from '../src/useReactSuspense'
+import { useReactQuerySuspense } from '../src/useReactQuerySuspense'
 import { createWrapper, testCall } from './utils'
 import 'isomorphic-fetch'
 
@@ -18,7 +18,7 @@ describe('useReactSuspense', () => {
       wrapper
     })
 
-    const { result, rerender } = renderHook(() => useReactSuspense({ queryKeys: [queryKey] }), {
+    const { result, rerender } = renderHook(() => useReactQuerySuspense({ queryKeys: [queryKey] }), {
       wrapper
     })
 
@@ -49,7 +49,7 @@ describe('useReactSuspense', () => {
     const { result: resultCall2 } = renderHook(() => testCall(queryKey2, 100), {
       wrapper
     })
-    const { result, rerender } = renderHook(() => useReactSuspense({ queryKeys: [queryKey, queryKey2] }), {
+    const { result, rerender } = renderHook(() => useReactQuerySuspense({ queryKeys: [queryKey, queryKey2] }), {
       wrapper
     })
 
@@ -79,7 +79,7 @@ describe('useReactSuspense', () => {
       wrapper
     })
 
-    const { result, rerender } = renderHook(() => useReactSuspense({ queryKeys: [queryKey], deferredFetch: true }), {
+    const { result, rerender } = renderHook(() => useReactQuerySuspense({ queryKeys: [queryKey], deferredFetch: true }), {
       wrapper
     })
 
@@ -107,7 +107,7 @@ describe('useReactSuspense', () => {
       wrapper
     })
 
-    const { result } = renderHook(() => useReactSuspense({ queryKeys: [['diferentKey']] }), {
+    const { result } = renderHook(() => useReactQuerySuspense({ queryKeys: [['diferentKey']] }), {
       wrapper
     })
 
@@ -129,7 +129,7 @@ describe('useReactSuspense', () => {
       wrapper
     })
 
-    const { result } = renderHook(() => useReactSuspense({ queryKeys: [['diferentKey']], deferredFetch: true }), {
+    const { result } = renderHook(() => useReactQuerySuspense({ queryKeys: [['diferentKey']], deferredFetch: true }), {
       wrapper: createWrapper()
     })
 
