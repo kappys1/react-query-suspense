@@ -5,6 +5,17 @@
 <h1 align="center">React Query Suspense</h1>
 
 <p align="center">
+  <a href="https://github.com/kappys1/react-query-suspense/actions/workflows/test.yml" target="\_parent"><img src="https://github.com/kappys1/react-query-suspense/actions/workflows/test.yml/badge.svg?branch=main" alt="Latest build"></a>
+  <a href="https://www.npmjs.com/package/@kappys/react-query-suspense" target="\_parent"><img src="https://badgen.net/npm/v/@kappys/react-query-suspense" alt="Latest published version"></a>
+  <a href="https://bundlephobia.com/package/@kappys/react-query-suspense@latest" target="\_parent"><img src="https://badgen.net/bundlephobia/minzip/@kappys/react-query-suspense" alt="Bundlephobia"></a>
+  <a href="https://bundlephobia.com/package/@kappys/react-query-suspense@latest" target="\_parent"><img src="https://badgen.net/bundlephobia/tree-shaking/@kappys/react-query-suspense" alt="Tree shaking available"></a>
+  <a href="https://github.com/kappys1/react-query-suspense" target="\_parent"><img src="https://badgen.net/npm/types/@kappys/react-query-suspense" alt="Types included"></a>
+  <a href="https://www.npmjs.com/package/@kappys/react-query-suspense" target="\_parent"><img src="https://badgen.net/npm/license/@kappys/react-query-suspense" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@kappys/react-query-suspense" target="\_parent"><img src="https://badgen.net/npm/dt/@kappys/react-query-suspense" alt="Number of downloads"></a>
+  <a href="https://github.com/kappys1/react-query-suspense" target="\_parent"><img src="https://img.shields.io/github/stars/kappys1/react-query-suspense.svg?style=social&amp;label=Star" alt="GitHub Stars"></a>
+</p>
+
+<p align="center">
   <strong>another way to suspense the <a href="https://tanstack.com/query" target="\_parent">@tanstack/query</a> calls by queryKeys with multiples possibilities</strong>
 </p>
 
@@ -21,6 +32,7 @@ npm install @kappys/react-query-suspense
 ```
 
 ## ⚡ Quick start
+
 ```ts
 import { QueryKey, useQuery } from '@tanstack/react-query'
 import React from 'react'
