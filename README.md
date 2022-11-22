@@ -107,7 +107,7 @@ const suspense: boolean = useReactQuerySuspense({ queryKeys })
 
 ## 📘 API Reference
 
-#### ReactQuerySuspense
+#### ReactQuerySuspense
 
 Attributes
 
