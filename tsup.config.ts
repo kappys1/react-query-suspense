@@ -6,5 +6,12 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   outDir: 'dist',
   clean: true,
-  sourcemap: true
+  dts: true,
+  splitting: false,
+  treeshake: true,
+  sourcemap: true,
+  external: [
+    'react',
+    '@tanstack/react-query'
+  ]
 })
