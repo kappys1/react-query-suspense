@@ -7,7 +7,13 @@ export const getQueryClient = (): QueryClient => {
       queries: {
         retry: false
       }
-    }
+    },
+    logger: {
+      log: console.log,
+      warn: console.warn,
+      // ✅ no more errors on the console for tests
+      error: process.env.NODE_ENV === 'test' ? () => {} : console.error,
+    },
   })
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { UseReactQueryParams } from './types'
 import { useReactQueryPromiseTracker } from './useReactQueryPromiseTracker'
 
-export const useReactSuspense = ({ context, queryKeys, deferredFetch = false }: UseReactQueryParams): boolean => {
+export const useReactQuerySuspense = ({ context, queryKeys, deferredFetch = false }: UseReactQueryParams): boolean => {
   const promiseInProgress = useReactQueryPromiseTracker({ queryKeys, context })
   const refAnyPromiseStarted = React.useRef<boolean>(promiseInProgress)
 
